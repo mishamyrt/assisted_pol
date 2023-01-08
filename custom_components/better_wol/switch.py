@@ -142,9 +142,12 @@ class BetterWolSwitch(SwitchEntity):
     def turn_off(self, **kwargs: Any) -> None:
         """Turn the device off if an off script is present."""
         if self._off_script is not None:
-            status = sp.call(self._off_script, shell=True)
-            if status != 0:
-                _LOGGER.error("Turn off script returned non-zero code: %d", status)
+            try:
+                status = sp.call(self._off_script, shell=True, timeout=5)
+                if status != 0:
+                    _LOGGER.error("Turn off script returned non-zero code: %d", status)
+            except sp.TimeoutExpired:
+                _LOGGER.warning("Off command killed by timeout")
         if self._off_action is not None:
             self._off_script.run(context=self._context)
 
