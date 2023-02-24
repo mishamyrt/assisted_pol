@@ -3,4 +3,4 @@ icon.go: icon.ico
 
 .PHONY: build
 build: icon.go
-	GOOS=windows GOARCH=amd64 go build -o ../dist/pol-assistant.exe
+	GOOS=windows GOARCH=amd64 go build -ldflags "-H=windowsgui" -o ../dist/pol-assistant.exe
