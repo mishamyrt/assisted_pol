@@ -1,8 +1,8 @@
-# Better Wake-On-LAN intergration
+# Assisted Power-On-LAN
 
-The standard Wake-On-LAN integration is very limited in configuration possibilities and has questionable update logic.
+To set up a computer power management scenario (including shutdown) via the standard Wake-On-LAN integration takes a lot of effort.
 
-This integration simplifies script invocation and adds a delayed status update. This means that the status indicator will not suddenly become off immediately after switching on due to the device taking a long time to start up
+Assisted WoL offers an option where you additionally run a small application on the computer that listens for requests from the integration and puts it to sleep if a request comes in.
 
 ## Configuration 
 
@@ -10,10 +10,8 @@ Example
 
 ```yaml
 switch:
-  - platform: better_wol
+  - platform: assisted_pol
     name: gaming_station
-    host: gaming-station
+    host: Gaming-Station.local
     mac: !secret gaming_station_mac
-    turn_off_script:
-      ssh -i /config/.ssh/id_rsa mishamyrt@192.168.1.148 "rundll32.exe powrprof.dll,SetSuspendState 0,1,0"
 ```

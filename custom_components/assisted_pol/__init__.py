@@ -1,12 +1,10 @@
-"""Support for sending Wake-On-LAN magic packets."""
-from functools import partial
+"""Support for Assisted Power-On-LAN."""
 import logging
 
 import voluptuous as vol
-import wakeonlan
 
 from homeassistant.const import CONF_BROADCAST_ADDRESS, CONF_BROADCAST_PORT, CONF_MAC
-from homeassistant.core import HomeAssistant, ServiceCall
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers.discovery import async_load_platform
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType

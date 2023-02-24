@@ -1,2 +1,5 @@
 venv/
 .vscode/
+/dist
+.DS_Store
+assistant/icon.go
