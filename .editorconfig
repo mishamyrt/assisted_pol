@@ -1,26 +1,23 @@
 # EditorConfig is awesome: http://EditorConfig.org
 
-# top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
 [*]
-end_of_line = lf
 insert_final_newline = true
-trim_trailing_whitespace = true
 charset = utf-8
-
-# 4 space indentation
-[*.{py,java,r,R}]
+trim_trailing_whitespace = true
 indent_style = space
+indent_size = 2
+
+[{Makefile,go.mod,go.sum,*.go,.gitmodules}]
+indent_style = tab
 indent_size = 4
 
-# 2 space indentation
-[*.{js,json,y{a,}ml,html,cwl}]
-indent_style = space
-indent_size = 2
-
-[*.{md,Rmd,rst}]
+[*.md]
+indent_size = 4
 trim_trailing_whitespace = false
-indent_style = space
-indent_size = 2
+
+[*.py]
+indent_size = 4
+
+eclint_indent_style = unset
