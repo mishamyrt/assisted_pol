@@ -51,6 +51,8 @@ def setup_platform(
     discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
     """Set up a wake on lan switch."""
+    if len(config) == 0:
+        return
     broadcast_address: str | None = config.get(CONF_BROADCAST_ADDRESS)
     broadcast_port: int | None = config.get(CONF_BROADCAST_PORT)
     host: str | None = config.get(CONF_HOST)
